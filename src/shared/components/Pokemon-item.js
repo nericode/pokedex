@@ -1,21 +1,24 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {Text, StyleSheet, Image} from 'react-native';
 import Colors from '../../styles/Colors';
 import {Card} from './Card';
-import FastImage from 'react-native-fast-image';
 import {getIcon} from '../../utils/ui/Images';
+import * as RootNavigation from '../../navigators/Navigate';
 
 function PokemonItem({item}) {
   return (
-    <Card style={[styles.card, {backgroundColor: '#ffffff'}]}>
+    <Card
+      onPress={() =>
+        RootNavigation.navigate('PokemonDetail', {
+          id: item.id,
+        })
+      }
+      style={[styles.card, {backgroundColor: '#ffffff'}]}>
       {item.image ? (
-        <FastImage
+        <Image
+          resizeMode="contain"
           style={{width: 110, flex: 5, alignSelf: 'center'}}
-          source={{
-            uri: item.image,
-            priority: FastImage.priority.normal,
-          }}
-          resizeMode={FastImage.resizeMode.contain}
+          source={{uri: item.image}}
           testID="PokemonItem.FastImage"
         />
       ) : (
@@ -33,7 +36,7 @@ function PokemonItem({item}) {
   );
 }
 
-export default PokemonItem;
+export default memo(PokemonItem);
 
 const styles = StyleSheet.create({
   card: {

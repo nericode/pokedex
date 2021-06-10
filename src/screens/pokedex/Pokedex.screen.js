@@ -19,12 +19,20 @@ function Empty() {
   return <EmptyScreen title="There isn't Pokemons" />;
 }
 
+function Item({item}) {
+  return <PokemonItem item={item} />;
+}
+
 function PokedexScreen() {
   const [loading, setLoading] = useState(true);
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
     doGetAllPokemons(0, 30);
+
+    return () => {
+      currentOffset = 0;
+    };
   }, []);
 
   const doGetAllPokemons = async (offset, limit) => {
@@ -67,14 +75,13 @@ function PokedexScreen() {
           columnWrapperStyle={{paddingLeft: 15, paddingRight: 15}}
           showsVerticalScrollIndicator={false}
           keyExtractor={(item, index) => index}
-          renderItem={PokemonItem}
+          renderItem={Item}
           ListHeaderComponent={PokemonListHeader}
           ListFooterComponent={loading ? Loader : null}
           ListEmptyComponent={Empty}
           maxToRenderPerBatch={30}
-          updateCellsBatchingPeriod={30}
           windowSize={31}
-          removeClippedSubviews={true}
+          legacyImplementation={false}
           onEndReached={() => doGetAllPokemons(30, 30)}
         />
       </View>

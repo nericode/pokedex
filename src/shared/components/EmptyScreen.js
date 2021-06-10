@@ -2,27 +2,25 @@ import React from 'react';
 import {View, Image, Text} from 'react-native';
 import {getIcon} from '../../utils/ui/Images';
 
-function EmptyScreen(props) {
+function EmptyScreen({title}) {
   return (
-    <>
-      <View
+    <View
+      style={{
+        marginVertical: 25,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <Image source={getIcon('pokeballLoading')} />
+      <Text
         style={{
-          marginVertical: 25,
-          justifyContent: 'center',
-          alignItems: 'center',
+          color: 'gray',
+          fontSize: 16,
+          fontWeight: 'bold',
+          marginVertical: 15,
         }}>
-        <Image source={getIcon('pokeballLoading')} />
-        <Text
-          style={{
-            color: 'gray',
-            fontSize: 16,
-            fontWeight: 'bold',
-            marginVertical: 15,
-          }}>
-          {props.title}
-        </Text>
-      </View>
-    </>
+        {title}
+      </Text>
+    </View>
   );
 }
 

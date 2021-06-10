@@ -23,6 +23,10 @@ function Empty() {
   return <EmptyScreen title="There isn't Pokemons" />;
 }
 
+function Item({item}) {
+  return <PokemonItem item={item} />;
+}
+
 function PokemonMovesScreen(props) {
   const [loading, setLoading] = useState(true);
   const [pokemons, setPokemons] = useState([]);
@@ -82,7 +86,7 @@ function PokemonMovesScreen(props) {
             columnWrapperStyle={{paddingLeft: 15, paddingRight: 15}}
             showsVerticalScrollIndicator={false}
             keyExtractor={(item, index) => String(index)}
-            renderItem={PokemonItem}
+            renderItem={Item}
             ListEmptyComponent={Loader}
             maxToRenderPerBatch={30}
             ListHeaderComponent={Header}

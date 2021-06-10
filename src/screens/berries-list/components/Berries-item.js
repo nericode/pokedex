@@ -1,19 +1,17 @@
 import React from 'react';
-import {Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet, Image} from 'react-native';
 import {Card} from '../../../shared/components/Card';
-import FastImage from 'react-native-fast-image';
 
 function BerriesItem({item}) {
   return (
-    <Card style={[styles.card]}>
-      <FastImage
+    <Card disabled={true} style={[styles.card]}>
+      <Image
         style={{height: 45, width: 45}}
         source={{
           uri: item.image,
-          priority: FastImage.priority.normal,
         }}
-        resizeMode={FastImage.resizeMode.contain}
-        testID="PokemonItem.FastImage"
+        resizeMode="contain"
+        testID="BerriesItem.Image"
       />
       <Text numberOfLines={1} style={styles.title}>
         {item.name}

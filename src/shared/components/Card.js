@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 10,
     backgroundColor: '#ffffff',
-    elevation: 10,
+    elevation: 3,
     shadowColor:
       Platform.OS === 'android'
         ? 'rgba(43, 47, 48, 0.8)'

@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import {navigationRef} from './Navigate';
 
 // Screens
@@ -9,6 +9,7 @@ import MovesListScreen from '../screens/moves-list/Moves-list.screen';
 import PokemonMovesScreen from '../screens/moves-list/Pokemon-moves.screen';
 import {headerDefault} from '../styles/styles';
 import BerriesListScreen from '../screens/berries-list/Berries-list.screen';
+import PokemonDetail from '../screens/pokemon-detail/Pokemon-detail.screen';
 
 const Stack = createStackNavigator();
 
@@ -27,7 +28,6 @@ const RootNavigator = () => {
           options={{
             headerTitle: 'All categories',
             ...headerDefault,
-            ...TransitionPresets.SlideFromRightIOS,
           }}
         />
         <Stack.Screen
@@ -36,7 +36,6 @@ const RootNavigator = () => {
           options={{
             headerTitle: 'All Pokemons',
             ...headerDefault,
-            ...TransitionPresets.SlideFromRightIOS,
           }}
         />
         <Stack.Screen
@@ -45,7 +44,14 @@ const RootNavigator = () => {
           options={{
             headerTitle: 'All Berries',
             ...headerDefault,
-            ...TransitionPresets.SlideFromRightIOS,
+          }}
+        />
+        <Stack.Screen
+          name="PokemonDetail"
+          component={PokemonDetail}
+          options={{
+            headerTitle: 'Pokemon Detail',
+            ...headerDefault,
           }}
         />
       </Stack.Navigator>
