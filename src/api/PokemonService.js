@@ -18,8 +18,8 @@ class PokemonService {
       .catch(msg => Logger.error(msg));
   };
 
-  getPokemon = async name => {
-    const url = `${Environment.api}pokemon/${name}`;
+  getPokemon = async nameOrId => {
+    const url = `${Environment.api}pokemon/${nameOrId}`;
     return await Axios({
       method: 'GET',
       url,
@@ -32,8 +32,7 @@ class PokemonService {
       .catch(msg => Logger.error(msg));
   };
 
-  getEvolution = async id => {
-    const url = `${Environment.api}evolution-chain/${id}`;
+  getEvolutionByURL = async url => {
     return await Axios({
       method: 'GET',
       url,
@@ -101,6 +100,19 @@ class PokemonService {
   };
 
   getBerryItemByURL = async url => {
+    return await Axios({
+      method: 'GET',
+      url,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(json => json.data)
+      .then(response => response)
+      .catch(msg => Logger.error(msg));
+  };
+
+  getPokemonSpeciesByURL = async url => {
     return await Axios({
       method: 'GET',
       url,
