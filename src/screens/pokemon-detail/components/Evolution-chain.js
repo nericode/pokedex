@@ -75,7 +75,10 @@ function EvolutionChain({chain, pokemon}) {
         contentContainerStyle={{marginLeft: 10, marginBottom: 10}}>
         {pokemons.map((pokemon, index) => {
           return (
-            <View key={index} style={{flexDirection: 'row'}}>
+            <View
+              testID={'EvolutionChain.View-' + pokemon.name}
+              key={index}
+              style={{flexDirection: 'row'}}>
               <Image
                 resizeMode="stretch"
                 style={{
