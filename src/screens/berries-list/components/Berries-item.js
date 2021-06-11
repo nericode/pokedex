@@ -4,7 +4,10 @@ import {Card} from '../../../shared/components/Card';
 
 function BerriesItem({item}) {
   return (
-    <Card disabled={true} style={[styles.card]}>
+    <Card
+      testID={'BerriesItem.Card-' + item.name}
+      disabled={true}
+      style={[styles.card]}>
       <Image
         style={{height: 45, width: 45}}
         source={{

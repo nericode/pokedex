@@ -8,6 +8,7 @@ import * as RootNavigation from '../../navigators/Navigate';
 function PokemonItem({item}) {
   return (
     <Card
+      testID={'PokemonItem.Card-' + item.name}
       onPress={() =>
         RootNavigation.navigate('PokemonDetail', {
           id: item.id,

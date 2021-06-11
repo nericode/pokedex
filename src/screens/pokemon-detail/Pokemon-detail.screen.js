@@ -35,7 +35,7 @@ function PokemonDetail(props) {
   return pokemon.length === 0 ? (
     <EmptyScreen title="Loading pokemon..." />
   ) : (
-    <SafeAreaView>
+    <SafeAreaView testID="PokemonDetail.SafeAreaView">
       <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
         <Header pokemon={pokemon.info} />
         <Abilities abilities={pokemon.info.abilities} />
