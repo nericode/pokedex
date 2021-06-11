@@ -1,10 +1,12 @@
 import React from 'react';
 import {ScrollView, Text, Image} from 'react-native';
+import {isValidURL} from '../../../utils/helpers/Validators';
 
 function Sprites({sprites}) {
   var images = [];
   for (var key in sprites) {
-    if (typeof sprites[key] === 'string') images.push(sprites[key]);
+    if (typeof sprites[key] === 'string' && isValidURL(sprites[key]))
+      images.push(sprites[key]);
   }
 
   return (
@@ -29,6 +31,7 @@ function Sprites({sprites}) {
               }}
               key={index}
               source={{uri: image}}
+              testID={'Sprites.Image-' + index}
             />
           );
         })}

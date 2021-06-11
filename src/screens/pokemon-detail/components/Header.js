@@ -1,6 +1,5 @@
 import React from 'react';
 import {ImageBackground, Text, Image} from 'react-native';
-import Colors from '../../../styles/Colors';
 
 function Header({pokemon}) {
   return (

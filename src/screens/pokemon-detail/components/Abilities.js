@@ -17,10 +17,15 @@ function Abilities({abilities}) {
       </Text>
       <ScrollView
         horizontal
+        testID="Abilities.ScrollView"
         contentContainerStyle={{marginLeft: 10, paddingRight: 20}}>
         {abilities.map((abi, index) => {
           return (
-            <Card disabled={true} style={{margin: 5, padding: 20}} key={index}>
+            <Card
+              testID={'Abilities.Card-' + index}
+              disabled={true}
+              style={{margin: 5, padding: 20}}
+              key={index}>
               <Text>{abi.ability.name}</Text>
               <Image
                 style={{

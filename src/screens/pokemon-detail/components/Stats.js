@@ -20,7 +20,10 @@ function Stats({stats}) {
             <View key={index}>
               <Text style={{fontSize: 14}}>• {stat.stat.name}</Text>
               <View style={styles.progressBar}>
-                <View style={styles.barInner(stat.base_stat)} />
+                <View
+                  testID={'Stats.View.BarInner-' + stat.stat.name}
+                  style={styles.barInner(stat.base_stat)}
+                />
               </View>
             </View>
           );

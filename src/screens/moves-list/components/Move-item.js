@@ -8,13 +8,18 @@ import * as RootNavigation from '../../../navigators/Navigate';
 function MoveItem({item}) {
   return (
     <Card
+      testID={'MoveItem.Card-' + item.name}
       onPress={() =>
         RootNavigation.navigate('PokemonMoves', {
           url: item.url,
         })
       }
       style={[styles.card, {backgroundColor: Colors.primary}]}>
-      <Image style={styles.icon} source={getIcon('pokeballGrayIcon')} />
+      <Image
+        style={styles.icon}
+        source={getIcon('pokeballGrayIcon')}
+        testID="MoveItem.Image"
+      />
       <Text numberOfLines={1} style={styles.title}>
         {String(item.name).toUpperCase()}
       </Text>
