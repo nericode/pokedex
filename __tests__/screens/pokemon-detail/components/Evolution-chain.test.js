@@ -67,4 +67,14 @@ describe('Evolution-chain component', () => {
     );
     expect(evolution).toHaveLength(2);
   });
+
+  it('not show evolution chain', async () => {
+    const chain = {};
+    const {getByText} = render(
+      <EvolutionChain chain={chain} pokemon={{name: 'rattata'}} />,
+    );
+
+    const evolution = await waitFor(() => getByText('Not evolution chain'));
+    expect(evolution).toBeTruthy();
+  });
 });

@@ -59,7 +59,17 @@ function EvolutionChain({chain, pokemon}) {
     return evolutionChain;
   };
 
-  return (
+  return pokemons.length === 0 ? (
+    <Text
+      style={{
+        fontSize: 18,
+        margin: 10,
+        fontWeight: 'bold',
+        color: 'black',
+      }}>
+      Not evolution chain
+    </Text>
+  ) : (
     <>
       <Text
         style={{
