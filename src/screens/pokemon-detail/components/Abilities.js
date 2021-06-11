@@ -9,7 +9,8 @@ function Abilities({abilities}) {
       <Text
         style={{
           fontSize: 18,
-          margin: 10,
+          marginLeft: 10,
+          marginTop: 20,
           fontWeight: 'bold',
           color: 'black',
         }}>

@@ -9,8 +9,6 @@ function Header({pokemon}) {
         height: 250,
         width: '100%',
         alignSelf: 'center',
-        borderBottomRightRadius: 40,
-        borderBottomLeftRadius: 40,
       }}
       source={{
         uri: pokemon['sprites']['other']['official-artwork']['front_default'],
@@ -18,7 +16,7 @@ function Header({pokemon}) {
       <Image
         resizeMode="center"
         style={{
-          height: 180,
+          height: 160,
           width: 180,
           alignSelf: 'center',
         }}
@@ -32,7 +30,7 @@ function Header({pokemon}) {
           textAlign: 'center',
           fontWeight: 'bold',
         }}>
-        <Text style={{fontSize: 45}}>
+        <Text style={{fontSize: 35}}>
           {String(pokemon.name).charAt(0).toLocaleUpperCase()}
         </Text>
         {String(pokemon.name).substr(1, pokemon.name.length)}

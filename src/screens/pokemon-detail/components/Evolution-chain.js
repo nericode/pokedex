@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {ScrollView, Text, Image, View} from 'react-native';
 import PokemonService from '../../../api/PokemonService';
+import {Card} from '../../../shared/components/Card';
 
 function EvolutionChain({chain, pokemon}) {
   var pokesNames = [];
@@ -82,30 +83,37 @@ function EvolutionChain({chain, pokemon}) {
       </Text>
       <ScrollView
         horizontal
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={{marginLeft: 10, marginBottom: 10}}>
         {pokemons.map((pokemon, index) => {
           return (
             <View
-              testID={'EvolutionChain.View-' + pokemon.name}
               key={index}
-              style={{flexDirection: 'row'}}>
-              <Image
-                resizeMode="stretch"
-                style={{
-                  height: 85,
-                  width: 85,
-                }}
-                key={index}
-                source={{uri: pokemon.image}}
-              />
-              {pokemons.length - 1 === index ? null : (
+              testID={'EvolutionChain.View-' + pokemon.name}
+              style={{flexDirection: 'row', marginBottom: 15}}>
+              <Card disabled={true} style={{padding: 10}}>
+                <Image
+                  resizeMode="stretch"
+                  style={{
+                    height: 85,
+                    width: 85,
+                  }}
+                  key={index}
+                  source={{uri: pokemon.image}}
+                />
+              </Card>
+              {pokemons.length - 1 === index ? (
+                <View style={{width: 30}} />
+              ) : (
                 <Text
                   style={{
                     marginTop: 'auto',
                     marginBottom: 'auto',
                     fontWeight: 'bold',
                     color: 'gray',
+                    opacity: 0.2,
                     fontSize: 18,
+                    marginLeft: -5,
                   }}>
                   ⎯⎯
                 </Text>

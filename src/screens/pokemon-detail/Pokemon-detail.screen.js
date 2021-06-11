@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, ScrollView} from 'react-native';
+import {SafeAreaView, ScrollView, View} from 'react-native';
 import PokemonService from '../../api/PokemonService';
+import {Card} from '../../shared/components/Card';
 
 import EmptyScreen from '../../shared/components/EmptyScreen';
 import Abilities from './components/Abilities';
@@ -38,13 +39,22 @@ function PokemonDetail(props) {
     <SafeAreaView testID="PokemonDetail.SafeAreaView">
       <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
         <Header pokemon={pokemon.info} />
-        <Abilities abilities={pokemon.info.abilities} />
-        <Stats stats={pokemon.info.stats} />
-        <Sprites sprites={pokemon.info.sprites} />
-        <EvolutionChain
-          pokemon={pokemon.info}
-          chain={pokemon.evolution.chain}
-        />
+        <Card
+          disabled={true}
+          style={{
+            backgroundColor: 'white',
+            borderTopEndRadius: 15,
+            borderTopStartRadius: 15,
+            marginTop: -25,
+          }}>
+          <Abilities abilities={pokemon.info.abilities} />
+          <Stats stats={pokemon.info.stats} />
+          <Sprites sprites={pokemon.info.sprites} />
+          <EvolutionChain
+            pokemon={pokemon.info}
+            chain={pokemon.evolution.chain}
+          />
+        </Card>
       </ScrollView>
     </SafeAreaView>
   );
