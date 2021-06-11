@@ -1,16 +1,41 @@
-import React, {memo} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import React, {memo, useState} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
 import {Card} from '../../../shared/components/Card';
 import HeaderPokemon from '../../../shared/components/HeaderPokemon';
 import Colors from '../../../styles/Colors';
 import * as RootNavigation from '../../../navigators/Navigate';
 
 function PokemonListHeader() {
+  const [pokemon, setPokemon] = useState('');
+
+  const onNavigate = () => {
+    if (!pokemon) {
+      return;
+    }
+    RootNavigation.navigate('PokemonDetail', {
+      id: pokemon,
+    });
+  };
+
   return (
     <>
       <HeaderPokemon style={{alignSelf: 'center', marginVertical: 15}} />
       <TouchableOpacity activeOpacity={0.9} style={styles.container}>
-        <Text style={styles.text}>Buscar pokemon</Text>
+        <TextInput
+          onEndEditing={onNavigate}
+          value={pokemon}
+          onChangeText={setPokemon}
+          autoCapitalize="none"
+          returnKeyType="search"
+          style={styles.text}
+          placeholderTextColor="white"
+          placeholder="Buscar pokemon"></TextInput>
         <View style={styles.circle}>
           <View style={styles.circleMiddle} />
         </View>
@@ -75,9 +100,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'white',
     marginLeft: 10,
-    marginTop: 'auto',
-    marginBottom: 'auto',
     fontWeight: 'bold',
+    width: '85%',
     letterSpacing: 3,
   },
   circle: {

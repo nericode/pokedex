@@ -5,8 +5,8 @@ import PokemonListHeader from '../../../../src/screens/pokedex/components/Pokemo
 
 describe('Pokemon-list-header component', () => {
   it('should the search render correctly', () => {
-    const {getByText} = render(<PokemonListHeader />);
-    expect(getByText('Buscar pokemon')).toBeTruthy();
+    const {queryAllByLabelText} = render(<PokemonListHeader />);
+    expect(queryAllByLabelText('Buscar pokemon')).toBeTruthy();
   });
 
   it('should the cards render correctly', () => {
