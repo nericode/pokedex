@@ -79,7 +79,7 @@ function EvolutionChain({chain, pokemon}) {
           fontWeight: 'bold',
           color: 'black',
         }}>
-        Evolution Chain
+        📈 Evolution Chain
       </Text>
       <ScrollView
         horizontal

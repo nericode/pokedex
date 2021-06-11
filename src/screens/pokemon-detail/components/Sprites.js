@@ -18,7 +18,7 @@ function Sprites({sprites}) {
           fontWeight: 'bold',
           color: 'black',
         }}>
-        Sprites
+        🦠 Sprites
       </Text>
       <ScrollView horizontal contentContainerStyle={{marginLeft: 10}}>
         {images.map((image, index) => {

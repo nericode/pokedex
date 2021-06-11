@@ -12,7 +12,7 @@ function Stats({stats}) {
           margin: 10,
           fontWeight: 'bold',
         }}>
-        Stats
+        📊 Stats
       </Text>
       <ScrollView contentContainerStyle={{marginLeft: 10}}>
         {stats.map((stat, index) => {

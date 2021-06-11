@@ -14,7 +14,7 @@ function Abilities({abilities}) {
           fontWeight: 'bold',
           color: 'black',
         }}>
-        Abilities
+        🏆 Abilities
       </Text>
       <ScrollView
         horizontal
