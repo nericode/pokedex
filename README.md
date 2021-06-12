@@ -34,6 +34,12 @@ npx react-native run-ios --configuration Release
 or
 npx react-native run-ios --device --configuration Release
 
-# Run all test
+# How to test?, execute this commands
+
+Test all project
 
 npm test
+
+Test all project excluding API
+
+npm test -- --testPathIgnorePatterns PokemonService
