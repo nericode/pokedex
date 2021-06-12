@@ -26,7 +26,7 @@ describe('Abilities component', () => {
 
     const {getByText} = render(<Abilities abilities={items} />);
 
-    expect(getByText('Abilities')).toBeTruthy();
+    expect(getByText(/Abilities/)).toBeTruthy();
     expect(getByText('battle-armor')).toBeTruthy();
   });
 

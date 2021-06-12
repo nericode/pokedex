@@ -19,7 +19,7 @@ describe('Sprites component', () => {
       <Sprites sprites={sprites} />,
     );
 
-    expect(getByText('Sprites')).toBeTruthy();
+    expect(getByText(/Sprites/)).toBeTruthy();
     expect(getByTestId('Sprites.Image-1')).toBeTruthy();
     expect(queryByTestId('Sprites.Image-2')).toBeNull();
   });
