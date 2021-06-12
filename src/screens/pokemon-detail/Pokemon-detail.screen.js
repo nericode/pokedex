@@ -12,6 +12,7 @@ import Stats from './components/Stats';
 
 function PokemonDetail(props) {
   const [pokemon, setPokemon] = useState([]);
+  const [errorNetwork, setErrorNetwork] = useState(false);
 
   useEffect(() => {
     doGetPokemon();
@@ -19,19 +20,29 @@ function PokemonDetail(props) {
 
   const doGetPokemon = async () => {
     const {id} = props.route.params;
-    var poke = await PokemonService.getPokemon(id);
-    var species = await PokemonService.getPokemonSpeciesByURL(poke.species.url);
-    var evolutions = await PokemonService.getEvolutionByURL(
-      species.evolution_chain.url,
-    );
+    try {
+      var poke = await PokemonService.getPokemon(id);
+      var species = await PokemonService.getPokemonSpeciesByURL(
+        poke.species.url,
+      );
+      var evolutions = await PokemonService.getEvolutionByURL(
+        species.evolution_chain.url,
+      );
 
-    var pokemon = {
-      info: poke,
-      evolution: evolutions,
-    };
+      var pokemon = {
+        info: poke,
+        evolution: evolutions,
+      };
 
-    setPokemon(pokemon);
+      setPokemon(pokemon);
+    } catch (error) {
+      setErrorNetwork(true);
+    }
   };
+
+  if (errorNetwork) {
+    return <EmptyScreen title="Pokemon not found" />;
+  }
 
   return pokemon.length === 0 ? (
     <EmptyScreen title="Loading pokemon..." />

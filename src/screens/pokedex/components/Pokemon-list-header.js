@@ -19,7 +19,7 @@ function PokemonListHeader() {
       return;
     }
     RootNavigation.navigate('PokemonDetail', {
-      id: pokemon,
+      id: String(pokemon).toLowerCase(),
     });
   };
 
