@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, ScrollView, View} from 'react-native';
+import {SafeAreaView, ScrollView} from 'react-native';
 import PokemonService from '../../api/PokemonService';
 import {Card} from '../../shared/components/Card';
 

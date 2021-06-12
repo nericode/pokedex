@@ -35,6 +35,10 @@ function Header({pokemon}) {
         </Text>
         {String(pokemon.name).substr(1, pokemon.name.length)}
       </Text>
+      <Text
+        style={{position: 'absolute', right: 15, top: 10, fontWeight: 'bold'}}>
+        Weight: {pokemon.weight}
+      </Text>
     </ImageBackground>
   );
 }
