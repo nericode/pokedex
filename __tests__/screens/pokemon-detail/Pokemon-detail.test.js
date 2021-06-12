@@ -1,6 +1,11 @@
 import React from 'react';
 
-import {render, waitFor} from '@testing-library/react-native';
+import {
+  act,
+  render,
+  waitFor,
+  waitForElementToBeRemoved,
+} from '@testing-library/react-native';
 import PokemonService from '../../../src/api/PokemonService';
 import PokemonDetail from '../../../src/screens/pokemon-detail/Pokemon-detail.screen';
 
