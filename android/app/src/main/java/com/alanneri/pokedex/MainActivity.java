@@ -1,4 +1,4 @@
-package com.pokedex;
+package com.alanneri.pokedex;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;

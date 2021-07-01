@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.pokedex"
+        applicationId "com.alanneri.pokedex"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
